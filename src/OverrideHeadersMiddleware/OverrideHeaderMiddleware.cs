@@ -18,18 +18,14 @@ namespace OverrideHeadersMiddleware
         /*
          Write rules for the different headers
          Read the value for the different header keys we are looking for, 
-         then override those values in the request with the values in header       
-        */
-        public Task Invoke(HttpContext context)
-        {
-
-            /*            
+         then override those values in the request with the values in header   
             X-Forwarded-For
             X-Forwarded-Host
             X-Forwarded-Proto
-            X-http-method-override
-            X-Requested-with
-            */
+            X-Http-Method-Override    
+        */
+        public Task Invoke(HttpContext context)
+        {
 
             var xForward = context.Request.Headers.Get("X-Forward-For");
             if (options.XForwardForEnabled && xForward != null)

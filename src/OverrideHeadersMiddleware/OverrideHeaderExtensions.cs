@@ -12,6 +12,5 @@ namespace OverrideHeadersMiddleware
         {
             return builder.Use(next => new HeaderOverrideMiddleware(next, options).Invoke);
         }
-
     }
 }
